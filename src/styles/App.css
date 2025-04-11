@@ -1,0 +1,637 @@
+/* Reset de estilos básicos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+/*  Colores  */
+--body-bg          : #efebe9;
+--color-claro      : #D7CCC8;
+--color-medcla     : #A1887F;
+--color-medio      : #795548;
+--color-medosc     : #5D4037;
+--color-oscuro     : #3E2723;
+
+--text-color: #;
+
+/*  Fuentes  */
+--body-font  : 'Roboto', sans-serif;
+--title-font : 'Proxima Nova Rg', sans-serif;
+
+/*  Tamaños  */
+/*  --header-height     : 3rem;
+--section-spacing   : 4rem;
+--block-spacing     : 2rem;
+--body-line-height  : 1.6;
+--title-line-height : 1.3;*/
+
+/* Tamaños de fuentes */
+/*  --h1-font-size      : 2rem;
+--h2-font-size      : 1.5rem;
+--h3-font-size      : 1.25rem;
+--h4-font-size      : 1rem;
+--big-font-size     : 1rem;
+--normal-font-size  : 0.875rem;
+--small-font-size   : 0.75rem;
+--smaller-font-size : 0.6875rem;*/
+
+
+/* Otros */
+/*  --border-radius : 0.5rem;*/
+/*  --box-shadow    : 0 2px 2px rgba(36, 47, 66, 0.1);*/
+
+}
+
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--body-bg);
+  overflow-x: hidden;
+}
+
+header {
+  background: var(--color-oscuro);
+  color: var(--color-claro);
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+/* tema dia noche */
+
+body.day {
+  background-color: var(--body-bg);
+  /* color: #000000;      cambia color de textos  */
+}
+
+body.night {
+  background-color: var(--color-oscuro);
+  /* color: #e0e0e0;    cambia color de textos */
+}
+
+.btn-tema  {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  color: inherit; /* Hace que el color del botón cambie con el tema */
+  background-color: var(--color-claro);
+  color: var(--color-medosc);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.btn-tema:hover {
+  background-color: var(--color-medio);
+  color: var(--color-claro);
+}
+
+body.night .btn-tema {
+  background-color: var(--color-claro);
+  color: var(--color-medio);
+  border: 1px solid  var(--sub-titulos);
+}
+
+body.night .btn-tema:hover {
+  background-color: var(--color-medio);
+  color: var(--color-claro);
+}
+
+
+
+
+
+body.day .box {
+box-shadow: 0 4px 6px  rgba(128, 64, 0, 0.8);
+transition: transform 0.3s ease-in-out;
+}
+
+/* finaliza tema dia noche */
+
+
+
+
+
+
+/*  ----- MENÚ PRINCIPAL - BARRA DE NAVEGACION -----  */
+.main-header {
+  display    : flex;
+  position   : fixed;
+  top        : 0;
+  height     : 3rem;
+  width      : 100%;
+  background : var(--color-oscuro);  
+  box-shadow : 0 3px 5px rgba(112, 126, 132, 0.1);
+  z-index    : 50;
+}
+
+.content-wrapper {
+  width        : calc(100% - 2rem);
+  max-width    : 1200px;
+  margin-left  : 1rem;
+  margin-right : 1rem;
+}
+
+@media screen and (min-width: 768px) {
+
+  .content-wrapper {
+    width        : 100%;
+    margin-left  : auto;
+    margin-right : auto;
+  }
+}
+
+
+.main-header .content-wrapper {
+  display     : flex;
+  align-items : center;
+}
+
+
+
+.main-header .jam {
+  margin-left : auto;
+}
+
+.main-header img {
+  height : 3.5rem;
+  margin-left: 10px;
+  padding-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+
+  .main-header img {
+    height : 3.5rem;
+  }
+}
+
+/* icono de menu hamburguesa */
+.main-header .jam {
+  color     : var(--color-claro);
+  font-size : 2.5rem;
+  cursor    : pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .main-header .jam {
+    display : none;
+  }
+}
+
+.main-menu {
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .main-menu {
+    margin-left : auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .main-menu {
+    position        : fixed;
+    top             : 0;
+    left            : 0;
+    width           : 100%;
+    height          : 100vh;
+    background      : var(--color-medio); /*color de fondo del menu hamburguesa */
+    z-index         : 100;
+    transform       : scale(0);
+    transition      : transform 0.25s;
+    will-change     : transform;
+  }
+}
+
+
+.main-menu.active {
+  transform : initial;
+}
+
+.main-menu ul {
+  list-style   : none;
+  padding-left : 0;
+  margin       : 0;
+}
+
+@media screen and (min-width: 768px) {
+
+  .main-menu ul {
+    display : flex;
+  }
+
+}
+
+.main-menu .jam-close {
+  position : absolute;
+  right    : 1rem;
+  top      : 0.5rem;
+}
+
+.main-menu a {
+  display         : block;
+  padding         : 0.75rem 1rem;
+  color           : var(--color-claro);
+  text-decoration : none;
+  font-weight     : 600;
+}
+
+.main-menu a:hover {
+  color : var(--color-medcla);
+}
+
+@media screen and (max-width: 768px) {
+
+  .main-menu a {
+    text-align : center;
+    font-size  : 1rem;
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+  .main-menu ul li:last-of-type a {
+    padding-right : 15px;
+  }
+}
+
+/* FINALIZA MENU - BARRA DE NAVEGACION */
+
+
+
+
+
+.banner {
+  background: url('../assets/images/main.jpg') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* color: #fff; */
+  text-align: center;
+  padding-top: 60px; /* For fixed header */
+  line-height: 100px;
+}
+
+.banner h1 {
+  font-size: 4rem;
+  animation: fadeInDown 1s ease-in-out;
+  color: var(--color-claro);
+}
+
+.banner p {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-in-out;
+  color: var(--color-claro);
+}
+
+.boton-banner {
+  background: var(--color-oscuro);
+  color: var(--color-claro);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.boton-banner:hover {
+  background: var(--color-claro);
+  color:   var(--color-oscuro);
+  border: 1px solid  var(--color-claro);
+}
+
+
+
+
+.ban-textos {
+  padding: 10px;
+  /* background: #f4f4f4; */
+  border-radius: 15px;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+  background-color: rgba(161, 130, 98, 0.8); /* Fondo negro con 80% de transparencia */
+}
+
+
+
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  padding-top: 80px; /* For fixed header */
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+.about, .gallery, .contact {
+  padding: 20px;
+  background: var(--color-claro);
+  color: var(--color-oscuro);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.about h2 {
+  color: var(--color-oscuro);
+}
+
+.about p {
+color: var(--color-medosc);
+}
+.localizacion {
+  padding: 10px;
+  background: var(--color-claro);
+  border-radius: 15px;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.cajas__texto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+}
+
+.box {
+  flex: 1 1 calc(33.33% - 32px);
+  background-color: var(--color-medosc);
+  color: var(--color-claro);
+  padding: 16px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px  rgba(161, 130, 98, 0.8);
+  transition: transform 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+}
+
+/* seccion de GALERIA DE IMAGENES */
+
+.gallery-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-images img {
+/*    position: relative;*/
+  width: calc(33.333% - 20px);
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  gap: 15px;
+}
+
+.gallery-images img:hover {
+  transform: scale(1.1);
+}
+
+.gallery h2 {
+  padding-bottom: 15px;
+}
+
+
+/* CONTACTO */
+
+form {
+  text-align: center;
+  margin-top: 0;
+}
+
+input, textarea {
+  margin-bottom: 8px;
+  font-size: 12pt;
+  padding: 10px 10px 10px;
+  border: 1px solid var(--color-oscuro);
+  background-color: var(--color-medcla);
+  color: var(--color-oscuro) ;
+  border-radius: 10px;
+  width: 85%;
+  outline: none;
+}
+ 
+::placeholder {
+  color: var(--color-claro);
+}
+
+textarea {
+  height: 80px;
+}
+
+form  button {
+  background: var(--color-oscuro);
+  color:  var(--color-claro);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 85%;
+  font-weight: bold;
+}
+
+form  button:hover {
+  background:   var(--color-claro);
+  color:   var(--color-oscuro);
+  border: 1px solid  var(--color-oscuro);
+}
+
+
+
+/* seccion de mapa ubicacion */
+
+.map {
+  padding-bottom: 500px;
+  position: relative;
+}
+.map__iframe {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+
+
+
+
+
+/* FOOTER */
+
+
+
+.footer {
+  background-color: var(--color-oscuro);
+  color: var(--color-claro);
+  padding: 20px 0;
+  line-height: 1.2rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-column h3 {
+  border-bottom: 2px solid var(--color-claro);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 10px 0;
+}
+
+.footer-column ul li a {
+  color: var(--color-medcla);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: var(--color-claro);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--color-claro);
+  margin-top: 10px;
+  /* padding-bottom: 5px; */
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+  }
+
+  .hamburger {
+      display: flex;
+  }
+
+  .gallery-images img {
+      width: 100%;
+  }
+
+  .nav-links.open {
+      display: flex;
+  }
+
+  .overlay.active {
+      display: block;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateX(100%);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+
+
+/* Cuando la pantalla es menor a 768px de ancho, cada caja ocupará la mitad del ancho (50%). */
+@media (max-width: 768px) {
+  .box {
+      flex: 1 1 calc(50% - 32px);
+  }
+}
+
+/* Cuando la pantalla es menor a 480px, cada caja ocupará el ancho completo (100%). */
+@media (max-width: 480px) {
+  .box {
+      flex: 1 1 100%;
+  }
+}
